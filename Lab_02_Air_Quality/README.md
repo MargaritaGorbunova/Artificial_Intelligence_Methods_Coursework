@@ -1,22 +1,34 @@
-Lab 01: Concrete Strength Prediction
-Task: Regression predicting concrete compressive strength from 8 material parameters.
+# Lab 02: Air Quality Classification
 
-Methods:
+**Task:** Multiclass classification predicting air quality category from 9 environmental parameters.
 
-Single-layer perceptron (Widrow-Hoff algorithm with early stopping)
-Multi-layer perceptron (1 hidden layer, ReLU, backpropagation)
-Dataset: 1,030 samples × 9 features from Kaggle
+**Methods:**
 
-Results:
+- Multi-layer perceptron (3 hidden layers: 128→64→32, ReLU activation)
+- Dropout regularization (p=0.2)
+- Class-weighted CrossEntropyLoss for imbalanced data
+- Adam optimizer (lr=0.001)
 
-Model	Test MSE	Epochs	Improvement
-Single-layer	100.15	27*	Baseline
-Multi-layer	95.93	100	-4.2%
-*Early stopping
+**Dataset:** 5,000 samples × 10 features from custom collection
+- Features: Temperature, Humidity, PM2.5, PM10, NO2, SO2, CO, Proximity_to_Industrial_Areas, Population_Density
+- Target: Air Quality (Good/Moderate/Poor/Hazardous)
+- Class distribution: 2000/1500/1000/500 (40%/30%/20%/10%)
 
-Implementation: Complete from-scratch neural network implementation in single notebook.
+**Results:**
 
-File:
+| Model | Test Accuracy | Test Loss | Epochs | Class Weighting |
+|-------|---------------|-----------|--------|-----------------|
+| MLP (128-64-32) | 92.14% | 0.1967 | 50 | Yes |
 
-concrete_strength_prediction.ipynb (all code + visualizations)
-concrete_sdata.csv (data)
+**Class Weights Applied:**
+- Good (40%): 0.629
+- Moderate (30%): 0.829
+- Poor (20%): 1.229
+- Hazardous (10%): 2.571
+
+**Implementation:** Complete PyTorch implementation with preprocessing, training pipeline, and evaluation.
+
+**Files:**
+
+- `air_quality_classification.ipynb` (all code + visualizations)
+- `updated_pollution_dataset.csv` (data: 5,000 samples)
