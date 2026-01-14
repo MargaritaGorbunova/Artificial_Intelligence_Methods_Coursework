@@ -1,23 +1,23 @@
 # Lab 01: Concrete Strength Prediction
 
-## Task
-Predict concrete compressive strength based on 8 compositional parameters.
+**Task:** Regression predicting concrete compressive strength from 8 material parameters.
 
-## Approach
-- Implementation of single-layer and multi-layer perceptrons from scratch
-- Widrow-Hoff algorithm for single-layer perceptron
-- Backpropagation with ReLU activation for multi-layer perceptron
-- Early stopping mechanism
+**Methods:**
+- Single-layer perceptron (Widrow-Hoff algorithm with early stopping)
+- Multi-layer perceptron (1 hidden layer, ReLU, backpropagation)
 
-## Dataset
-[Concrete Compressive Strength Dataset](https://www.kaggle.com/datasets/elikplim/concrete-compressive-strength-data-set) on Kaggle
+**Dataset:** 1,030 samples × 9 features from Kaggle
 
-## Results
-- Single-layer perceptron: Test MSE = 100.15
-- Multi-layer perceptron: Test MSE = 84.53
-- **Improvement: 15.6% reduction in MSE**
+**Results:**
+| Model | Test MSE | Epochs | Improvement |
+|-------|----------|--------|-------------|
+| Single-layer | 100.15 | 27* | Baseline |
+| Multi-layer | **95.93** | 100 | **-4.2%** |
 
-## Files
-- `concrete_strength.ipynb` - Main notebook with implementation
-- `concrete_data.csv` - Dataset
-- `perceptron.py` - Custom perceptron classes
+*\*Early stopping*
+
+**Implementation:** Complete from-scratch neural network implementation in single notebook.
+
+**File:** 
+- `concrete_strength_prediction.ipynb` (all code + visualizations)
+- `concrete_sdata.csv` (data)
